@@ -6,10 +6,13 @@
 
 ### dev
 
-migration
+start up DB
 
 ```bash
 docker-compose up -d
+```
+
+```bash
 ./bin/dev.sh migrate! up
 ./bin/dev.sh migrate! down
 ```
@@ -29,3 +32,34 @@ reset
 
 ### production
 
+Set environment variables.
+```bash
+MYSQL_DATABASE=***
+MYSQL_USER=***
+MYSQL_PASSWORD=***
+```
+
+start up DB
+
+```bash
+docker-compose -f docker-compose_prod.yaml run --service-ports -d db 
+```
+
+migration
+
+```bash
+./bin/prod.sh migrate! up
+./bin/prod.sh migrate! down
+```
+
+seeding
+
+```bash
+./bin/prod.sh seed
+```
+
+reset
+
+```bash
+./bin/prod.sh reset
+```
