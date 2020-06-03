@@ -34,10 +34,10 @@ reset
 
 Set environment variables.
 ```bash
-MYSQL_DATABASE=***
-MYSQL_USER=***
-MYSQL_PASSWORD=***
-MYSQL_ROOT_PASSWORD=***
+export rMYSQL_DATABASE=***
+export rMYSQL_USER=***
+export rMYSQL_PASSWORD=***
+export rMYSQL_ROOT_PASSWORD=***
 ```
 
 start up DB
