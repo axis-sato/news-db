@@ -1,20 +1,8 @@
 version: '3.7'
 services:
-  workspace:
-    build:
-      context: ./docker/go
-    environment:
-      - APP_ENV=development.docker
-    volumes:
-      - ./:/go/app
-    tty: true
-    networks:
-      - backend
-    depends_on:
-      - db
   db:
     build:
-      context: ./docker/mysql
+      context: .
     container_name: news_db
     volumes:
       - db_data:/var/lib/mysql:cached
@@ -25,11 +13,6 @@ services:
       MYSQL_DATABASE: news
       MYSQL_USER: news
       MYSQL_PASSWORD: news_password
-    networks:
-      - backend
 
 volumes:
   db_data:
-
-networks:
-  backend:
